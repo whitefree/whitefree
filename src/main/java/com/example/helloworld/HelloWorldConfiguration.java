@@ -1,3 +1,4 @@
+package com.example.helloworld;
 
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
