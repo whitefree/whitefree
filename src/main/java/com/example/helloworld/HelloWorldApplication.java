@@ -14,7 +14,7 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     @Override
     public String getName() {
         return "hello-world";
-    }
+    }  //URL name（application name）
 
     @Override
     public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
