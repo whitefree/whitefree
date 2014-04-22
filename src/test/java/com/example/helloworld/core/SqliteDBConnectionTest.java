@@ -3,7 +3,7 @@ package com.example.helloworld.core;
 /**
  * Created by syuan on 4/13/14.
  */
-public class Test {
+public class SqliteDBConnectionTest {
 
     public static void main(String[] args){
         TodoDAOImpl todoDAOImpl=new TodoDAOImpl();
