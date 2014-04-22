@@ -11,9 +11,16 @@ public class TodoSaying {
         this.todoDAOImpl = new TodoDAOImpl();
     }
 
-    public String getTodo(int id) {
-        String message=null;
-        message=todoDAOImpl.getTodoModel(id);
+    public String getTodo(int id)
+    {
+        String message="";
+        TodoModel todoModel=todoDAOImpl.getTodoModel(id);
+        if(todoModel.getName()==null)
+        {
+            message="no match record";
+        }else{
+            message=todoModel.getName();
+        }
         return message;
     }
 

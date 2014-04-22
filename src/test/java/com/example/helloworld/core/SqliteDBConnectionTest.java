@@ -7,8 +7,10 @@ public class SqliteDBConnectionTest {
 
     public static void main(String[] args){
         TodoDAOImpl todoDAOImpl=new TodoDAOImpl();
-        String name=todoDAOImpl.getTodoModel(0);
-        System.out.println(name);
+        boolean flag=todoDAOImpl.addTodoModel("name");
+        int id=todoDAOImpl.getMaxId();
+        System.out.print(flag);
+
 
     }
 }

@@ -5,10 +5,12 @@ package com.example.helloworld.core;
  */
 public interface TodoDAO {
 
-    public String getTodoModel(int id);
+    public TodoModel getTodoModel(int id);
 
 
     public boolean addTodoModel(String name);
+
+    public int getMaxId();
 
 
 

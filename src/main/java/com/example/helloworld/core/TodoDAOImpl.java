@@ -10,38 +10,54 @@ import java.sql.*;
  */
 public class TodoDAOImpl implements TodoDAO{
 
-
-    int id=4;
     @Override
     public boolean addTodoModel(String name) {
         boolean flag=false;
         int status =0;
+        int id=0;
 
         Connection conn= SqliteDBConnection.getConnection();
         String sql="insert into todo values(?,?)";
         PreparedStatement pstmt=null;
         try {
             pstmt=conn.prepareStatement(sql);
+            id=getMaxId()+1;
             pstmt.setInt(1, id);
-            pstmt.setString(2,name);
+            pstmt.setString(2,name+id);
             status=pstmt.executeUpdate();
             if (status>0){
                 flag=true;
-                id++;
             }
 
         } catch (SQLException e) {
             flag=false;
         }
         return flag;
-
-
     }
 
     @Override
-    public String getTodoModel(int id){
+    public int getMaxId() {
+        int maxId=0;
+        Statement stmt=null;
+        ResultSet rs=null;
 
-        String name="origin name";
+        Connection conn= SqliteDBConnection.getConnection();
+        String sql="select max(id) from todo ";
+
+        try {
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery(sql);
+            while (rs.next()){
+                maxId=Integer.parseInt(rs.getString(1));
+            }
+        } catch (SQLException e) {
+
+        }
+        return maxId;
+    }
+
+    @Override
+    public TodoModel getTodoModel(int id){
         TodoModel todo=new TodoModel();
         Statement stmt=null;
         ResultSet rs=null;
@@ -57,12 +73,9 @@ public class TodoDAOImpl implements TodoDAO{
                 todo.setId(rs.getInt(1));
                 todo.setName(rs.getString(2));
             }
-            name=todo.getName();
-
-
         } catch (SQLException e) {
-            name="no match record";
+
         }
-        return name;
+        return todo;
     }
 }

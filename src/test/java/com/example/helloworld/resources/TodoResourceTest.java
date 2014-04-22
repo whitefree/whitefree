@@ -14,12 +14,13 @@ public class TodoResourceTest {
     public void testGetTodo() throws Exception {
         TodoSaying todoSaying = new TodoSaying();
         TodoResource todoResource = new TodoResource(todoSaying);
-        assertThat(todoResource.getTodo(4), is("wangwu"));
+        assertThat(todoResource.getTodo(1), is("yuansong"));
     }
 
     @Test
     public void testAddTodo() throws Exception {
        TodoSaying todoSaying=new TodoSaying();
         TodoResource todoResource=new TodoResource(todoSaying);
+        assertThat(todoResource.addTodo(),is("insert success"));
     }
 }
