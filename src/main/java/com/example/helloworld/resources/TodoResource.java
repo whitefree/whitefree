@@ -1,10 +1,10 @@
 package com.example.helloworld.resources;
 
-import com.codahale.metrics.annotation.Timed;
 import com.example.helloworld.core.TodoSaying;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
 
 @Path("/todo")
 @Produces(MediaType.APPLICATION_JSON)
@@ -26,10 +26,8 @@ public class TodoResource {
     }
 
     @POST
-    public String addTodo(@QueryParam("name") String name) {
-       return  todoSaying.addTodo(name);
+    public void addTodo(Request request) {
+        System.out.println(request.getMethod());
+        System.out.println("I got an post message!!!");
     }
-
-
-
 }

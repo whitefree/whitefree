@@ -10,24 +10,28 @@ import java.sql.*;
  */
 public class TodoDAOImpl implements TodoDAO{
 
+
+    int id=4;
     @Override
     public boolean addTodoModel(String name) {
         boolean flag=false;
         int status =0;
 
         Connection conn= SqliteDBConnection.getConnection();
-        String sql="insert into todo (?,?)";
+        String sql="insert into todo values(?,?)";
         PreparedStatement pstmt=null;
         try {
             pstmt=conn.prepareStatement(sql);
-            pstmt.setInt('1', 1);
-            pstmt.setString('2',name);
+            pstmt.setInt(1, id);
+            pstmt.setString(2,name);
+            status=pstmt.executeUpdate();
             if (status>0){
                 flag=true;
+                id++;
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            flag=false;
         }
         return flag;
 

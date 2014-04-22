@@ -13,10 +13,6 @@ public class SqliteDBConnection
         {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("jdbc:sqlite:test.sqlite");
-            if(connection!=null){
-                System.out.println("DB connect sucessfully");
-            }
-
 
         }
         catch (Exception e)
