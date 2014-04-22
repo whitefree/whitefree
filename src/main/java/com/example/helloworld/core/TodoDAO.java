@@ -5,7 +5,7 @@ package com.example.helloworld.core;
  */
 public interface TodoDAO {
 
-    public TodoModel getTodoModel(int id);
+    public String getTodoModel(int id);
 
 
     public boolean addTodoModel(String name);

@@ -35,8 +35,9 @@ public class TodoDAOImpl implements TodoDAO{
     }
 
     @Override
-    public TodoModel getTodoModel(int id){
+    public String getTodoModel(int id){
 
+        String name="origin name";
         TodoModel todo=new TodoModel();
         Statement stmt=null;
         ResultSet rs=null;
@@ -52,11 +53,12 @@ public class TodoDAOImpl implements TodoDAO{
                 todo.setId(rs.getInt(1));
                 todo.setName(rs.getString(2));
             }
+            name=todo.getName();
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            name="no match record";
         }
-        return todo;
+        return name;
     }
 }

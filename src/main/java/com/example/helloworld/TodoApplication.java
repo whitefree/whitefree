@@ -1,5 +1,6 @@
 package com.example.helloworld;
 
+import com.example.helloworld.core.TodoSaying;
 import com.example.helloworld.resources.TodoResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -7,9 +8,6 @@ import io.dropwizard.setup.Environment;
 
 
 
-/**
- * Created by syuan on 4/13/14.
- */
 public class TodoApplication extends Application<TodoConfiguration> {
 
     public static void main(String[] args) throws Exception {
@@ -32,8 +30,8 @@ public class TodoApplication extends Application<TodoConfiguration> {
 
     @Override
     public void run(TodoConfiguration configuration, Environment environment) {
-        final TodoResource resource = new TodoResource();
-
-
+        TodoSaying todoSaying = new TodoSaying();
+        final TodoResource resource = new TodoResource(todoSaying);
+        environment.jersey().register(resource);
     }
 }

@@ -7,8 +7,8 @@ public class SqliteDBConnectionTest {
 
     public static void main(String[] args){
         TodoDAOImpl todoDAOImpl=new TodoDAOImpl();
-        TodoModel todo=todoDAOImpl.getTodoModel(2);
-        System.out.println(todo.getName());
+        String name=todoDAOImpl.getTodoModel(0);
+        System.out.println(name);
 
     }
 }

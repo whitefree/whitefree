@@ -3,10 +3,6 @@ package com.example.helloworld.resources;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/**
- * Created by syuan on 4/13/14.
- */
-
 public class SqliteDBConnection
 {
     public  static Connection getConnection(){

@@ -7,10 +7,13 @@ public class TodoSaying {
 
     private TodoDAOImpl todoDAOImpl;
 
+    public TodoSaying() {
+        this.todoDAOImpl = new TodoDAOImpl();
+    }
+
     public String getTodo(int id) {
         String message=null;
-        TodoModel todoModel=todoDAOImpl.getTodoModel(id);
-        message=todoModel.getName();
+        message=todoDAOImpl.getTodoModel(id);
         return message;
     }
 
