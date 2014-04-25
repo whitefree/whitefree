@@ -24,8 +24,7 @@ public class TodoResource {
     }
 
     @POST
-    public String addTodo() {
-        String name="name2";
+    public String addTodo(@FormParam("name") String name) {
         return todoSaying.addTodo(name);
     }
 }

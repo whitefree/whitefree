@@ -6,9 +6,6 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-/**
- * Created by syuan on 4/22/14.
- */
 public class TodoResourceTest {
     @Test
     public void testGetTodo() throws Exception {
@@ -21,6 +18,6 @@ public class TodoResourceTest {
     public void testAddTodo() throws Exception {
        TodoSaying todoSaying=new TodoSaying();
         TodoResource todoResource=new TodoResource(todoSaying);
-        assertThat(todoResource.addTodo(),is("insert success"));
+        assertThat(todoResource.addTodo("test string"),is("insert success"));
     }
 }
